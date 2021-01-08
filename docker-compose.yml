@@ -1,0 +1,14 @@
+version: "3.8"
+
+services: 
+  fe-container:
+    tty: true
+    container_name: panejorn-dashboard
+    build:
+      context: .
+      dockerfile: .Dockerfile
+    volumes: 
+      - './panejorn-dashboard:/opt/app'
+    ports: 
+      - '3000:3000'
+    command: sh -c 'npm run start'
