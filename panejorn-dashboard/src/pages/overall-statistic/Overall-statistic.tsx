@@ -1,4 +1,5 @@
 import React from 'react'
+import Map from '../../components/Map/Map'
 
 const Overall = () => {
 
@@ -13,7 +14,7 @@ const Overall = () => {
             </div>
             <div className='row'>
                 <div className='col-6'>
-
+                    <Map/>
                 </div>
                 <div className='col-6'>
 
