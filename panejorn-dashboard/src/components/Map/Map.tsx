@@ -1,11 +1,33 @@
-import React from 'react'
+import { get } from 'https'
+import React, { useEffect, useState } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import './map.css'
 
 const Map = () => {
-    return ( 
-    
 
+    const [mapData, setMapdata] = useState()
+
+    const getThailandMap = () => {
+        fetch('thailandMap.json',{
+            headers: {
+                'Content-Type':'application/json',
+                'Accept':'application/json'
+            }
+        })
+        .then(function(res){
+            console.log(res)
+            return res.json();
+        })
+        .then(jsonRes => {
+            console.log(jsonRes);
+        });
+    }
+
+    useEffect(()=>{
+        getThailandMap()
+    },[])
+
+    return ( 
         <MapContainer id='mapid' center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
             <TileLayer
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
