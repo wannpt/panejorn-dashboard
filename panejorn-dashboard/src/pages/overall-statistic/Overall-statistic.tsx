@@ -1,5 +1,5 @@
 import React from 'react'
-import Map from '../../components/Map/Map'
+import MapComp from '../../components/Map/Map'
 
 const Overall = () => {
 
@@ -14,7 +14,7 @@ const Overall = () => {
             </div>
             <div className='row pt-4'>
                 <div className='col-6'>
-                    <Map/>
+                    <MapComp/>
                 </div>
                 <div className='col-6'>
                     This should be card section

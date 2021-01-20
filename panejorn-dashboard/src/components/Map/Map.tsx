@@ -1,9 +1,8 @@
-import { get } from 'https'
-import L, { LatLngExpression } from 'leaflet'
-import React, { useEffect, useState } from 'react'
-import { MapContainer, TileLayer, Marker, Popup, Polygon, GeoJSON} from 'react-leaflet'
+import { Feature, Geometry } from 'geojson'
+import { geoJSON, Layer, layerGroup, LeafletMouseEvent, Map } from 'leaflet'
+import React, { ReactComponentElement, useEffect, useRef, useState } from 'react'
+import { MapContainer, TileLayer, Marker, Popup, Polygon, GeoJSON, useMap} from 'react-leaflet'
 import './map.css'
-
 
 const MapTypeConst: GeoJSON.FeatureCollection = {
     type: 'FeatureCollection',
@@ -19,18 +18,73 @@ const MapTypeConst: GeoJSON.FeatureCollection = {
     ]
   }
 
-  //need works
-  const highlightStyle = {
-    weight: 5,
-    color: '#666',
-    dashArray: '',
-    fillOpacity: 0.7
-  }
+//need works
+var highlightStyle = {
+weight: 1,
+color: '#FD8D3C',
+dashArray: '',
+fillOpacity: 0.5
+}
+
+const GeoMapContainer = (props: any) => {
+    let LeafletMap = useMap();
+
+    const onHighlight = (e: LeafletMouseEvent) => {
+   
+        const layer = e.target
+        layer.setStyle({
+            weight: 2,
+            color: '#FC4E2A',
+            dashArray: '',
+            fillOpacity: 0.7
+        })
+        layer.bringToFront();
+        console.log(layer.options.style)
+    
+    }
+    
+    const resetHighlight = (e: LeafletMouseEvent) => {
+        const layer = e.target
+        layer.setStyle({
+            weight: 1,
+            color: '#FD8D3C',
+            dashArray: '',
+            fillOpacity: 0.5
+        })
+        layer.bringToFront();
+    }
+
+    
+    const ZoomInFeature = (e: LeafletMouseEvent, LeafletMap: Map) => {
+        const layer = e.target
+        layer.setStyle({
+            weight: 1,
+            color: '#FC4E2A',
+            dashArray: '',
+            fillOpacity: 0.5
+        })
+        layer.bringToFront();
+
+        LeafletMap.fitBounds(e.target.getBounds());
+    
+    }
+    
+    const onEachFeature = (feature: Feature<Geometry, any>, layer: L.Layer) => {
+        
+        layer.on({
+            mouseover: (e) => onHighlight(e),
+            mouseout: (e) => resetHighlight(e),
+            click: (e) => ZoomInFeature(e, LeafletMap)
+        })
+    }
 
 
-  
+    return (
+        <GeoJSON data={props.mapData} style={highlightStyle} onEachFeature={onEachFeature} />
+    )
+}
 
-const Map = () => {
+const MapComp = () => {
 
     const [mapData, setMapdata] = useState<GeoJSON.FeatureCollection>(MapTypeConst)
     const [loading, setLoading] = useState('0')
@@ -54,6 +108,10 @@ const Map = () => {
         
     }
 
+    const geoJsonRef = useRef();
+
+
+
     useEffect(()=>{
         getThailandMap()
     },[])
@@ -69,7 +127,7 @@ const Map = () => {
             {console.log('before MapContainer' + mapData)}
             {
                 loading === '1' && (
-                    <GeoJSON data={mapData}  />
+                   <GeoMapContainer mapData={mapData} />
                 )
             }
            
@@ -79,4 +137,4 @@ const Map = () => {
     )
 }
 
-export default Map
+export default MapComp
