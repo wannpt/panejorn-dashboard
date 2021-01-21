@@ -39,8 +39,6 @@ const GeoMapContainer = (props: any) => {
             fillOpacity: 0.7
         })
         layer.bringToFront();
-        console.log(layer.options.style)
-    
     }
     
     const resetHighlight = (e: LeafletMouseEvent) => {
@@ -97,20 +95,14 @@ const MapComp = () => {
             }
         })
         .then(function(res){
-            console.log(res)
             return res.json();
         })
         .then(jsonRes => {
-            console.log(jsonRes);
             setMapdata(jsonRes);
             setLoading('1');
         });
         
     }
-
-    const geoJsonRef = useRef();
-
-
 
     useEffect(()=>{
         getThailandMap()
@@ -124,15 +116,12 @@ const MapComp = () => {
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            {console.log('before MapContainer' + mapData)}
             {
                 loading === '1' && (
                    <GeoMapContainer mapData={mapData} />
                 )
             }
-           
-            
-           
+
         </MapContainer>
     )
 }
