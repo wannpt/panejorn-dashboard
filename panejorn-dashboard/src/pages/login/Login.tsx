@@ -1,5 +1,5 @@
 import React from 'react'
-import {Form, Input, Button, Row, Col} from 'antd'
+import {Form, Input, Button} from 'antd'
 import { NavLink as Link, useHistory } from 'react-router-dom';
 import Statistic from '../overall-statistic/Overall-statistic';
 
@@ -38,40 +38,45 @@ const Login = () => {
     return (
     
         <div className='fullscreen'>
-            
-            <Row justify='center' align='middle' className='fullscreen'>
-                <Col span={10}>
-                    <Col span={24} style={{textAlign:'center'}}>
-                        <h1> พเนจร </h1>
-                    </Col>
-                    <Form {...layout}
-                        name='loginForm'
-                        onFinish={onFinish}
-                        onFinishFailed={onFinishFailed}>
+            <div className='row align-items-center full-height'>
+                <div className='col-12'>
+                    <div className='row text-center py-4'>
+                        <div className='col-12'>
+                            <span className='page-title'>พเนจร</span>
+                        </div>
+                    </div>
+                    <div className='row justify-content-center py-4'>
+                        <div className='col-6'>
+                            <Form {...layout}
+                                name='loginForm'
+                                onFinish={onFinish}
+                                onFinishFailed={onFinishFailed}>
 
-                            <Form.Item
-                                label='ชื่อผู้ใช้'
-                                name='username'
-                                rules={[{ required: true, message: 'กรุณากรอกผู้ใช้งาน'}]}>
-                                    <Input className='input'/>
-                            </Form.Item>
+                                    <Form.Item
+                                        label='ชื่อผู้ใช้'
+                                        name='username'
+                                        rules={[{ required: true, message: 'กรุณากรอกผู้ใช้งาน'}]}>
+                                            <Input className='input'/>
+                                    </Form.Item>
 
-                            <Form.Item
-                                label='รหัสผ่าน'
-                                name='password'
-                                rules={[{required: true, message:'กรุณากรอกรหัสผ่าน'}]}>
-                                    <Input.Password className='input'/>
-                            </Form.Item>
+                                    <Form.Item
+                                        label='รหัสผ่าน'
+                                        name='password'
+                                        rules={[{required: true, message:'กรุณากรอกรหัสผ่าน'}]}>
+                                            <Input.Password className='input'/>
+                                    </Form.Item>
 
-                            <Form.Item {...tailLayout}>
-                                <Button block type='primary' htmlType='submit' className='gradient-background input'>
-                                    ลงชื่อเข้าใช้
-                                </Button>
+                                    <Form.Item {...tailLayout}>
+                                        <Button block type='primary' htmlType='submit' className='gradient-background input'>
+                                            ลงชื่อเข้าใช้
+                                        </Button>
 
-                            </Form.Item>
-                        </Form>
-                </Col>
-            </Row>
+                                    </Form.Item>
+                                </Form>
+                            </div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

@@ -2,6 +2,7 @@
     font-family: 'Kanit', sans-serif;
     background-color: #fefefe;
     padding: 0px;
+    margin: 0px;
     }
   
     
@@ -15,7 +16,15 @@
 
 .fullscreen{
   width: 100%;
-  height: 100vh;
+  height: 100%;
+}
+
+.full-height{
+  height: 100vh
+}
+
+.row{
+  margin: 0px !important;
 }
 
 .input{
