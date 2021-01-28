@@ -73,11 +73,24 @@
   font-size: 48px;
 }
 
+.label-text{
+  font-size: 18px;
+}
+
 .gradient-text{
     background: rgb(243,187,128);
     background: -moz-linear-gradient(135deg, rgba(243,187,128,1) 0%, rgba(230,105,115,1) 100%);
     background: -webkit-linear-gradient(135deg, rgba(243,187,128,1) 0%, rgba(230,105,115,1) 100%);
     background: linear-gradient(135deg, rgba(243,187,128,1) 0%, rgba(230,105,115,1) 100%);
+
+    color: rgb(243,187,128);
+    color: -moz-linear-gradient(135deg, rgba(243,187,128,1) 0%, rgba(230,105,115,1) 100%);
+    color: -webkit-linear-gradient(135deg, rgba(243,187,128,1) 0%, rgba(230,105,115,1) 100%);
+    color: linear-gradient(135deg, rgba(243,187,128,1) 0%, rgba(230,105,115,1) 100%);
+
     -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+

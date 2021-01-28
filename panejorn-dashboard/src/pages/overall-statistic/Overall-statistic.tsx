@@ -1,6 +1,7 @@
 import React from 'react'
 import BigCard from '../../components/Card/BigCard'
-import MapComp from '../../components/Map/Map'
+import SmallCard from '../../components/Card/SmallCard'
+import MapComp from '../../components/Map/Map' 
 
 const Overall = () => {
 
@@ -19,6 +20,7 @@ const Overall = () => {
                 </div>
                 <div className='col-6 pr-4'>
                     <BigCard/>
+                    <SmallCard/>
                 </div>
             </div>
         </div>
