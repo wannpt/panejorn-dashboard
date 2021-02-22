@@ -3,6 +3,7 @@ import BigCard from '../../components/Card/BigCard'
 import SmallCard from '../../components/Card/SmallCard'
 import MapComp from '../../components/Map/Map' 
 import { connect } from 'react-redux'
+import Menu from '../../components/Menu/Menu'
 
 
 // interface StatWithDate {

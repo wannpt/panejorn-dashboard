@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import Menu from '../../components/Menu/Menu'
 import Topbar from '../../components/topbar/Topbar'
 
 const Dashboard = () => {
