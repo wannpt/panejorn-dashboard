@@ -1,10 +1,13 @@
 .App{
     font-family: 'Kanit', sans-serif;
-    background-color: #fefefe;
+    background-color: #ffffff !important;
     padding: 0px;
     margin: 0px;
     }
-  
+
+.ant-layout{
+  background-color: #ffffff !important;
+}
     
 .gradient-background{
   background: rgb(243,187,128);

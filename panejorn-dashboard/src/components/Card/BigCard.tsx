@@ -14,7 +14,7 @@ export const BigCard = (props: any) => {
             <div className='row my-2'>
                 <div className='col-12'>
                     <span className='topic-title gradient-text'>
-                        ประเทศไทย
+                        {props.province}
                     </span>
                 </div>
             </div>

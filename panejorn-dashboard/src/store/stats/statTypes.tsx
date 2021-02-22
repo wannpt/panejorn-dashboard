@@ -1,12 +1,19 @@
-export interface StatTypes {
-    province: string,
-    budget: number,
-    population: number,
-    isSelected: boolean
-}
+// export interface StatTypes {
+//     date: number,
+//     details: ProvinceStats[]
+// }
 
-export interface StatState {
-    Stats: StatTypes[]
+// export interface ProvinceStats {
+//     province: string,
+//     budget: number,
+//     population: number
+// }
+// export interface StatState {
+//     Stats: StatTypes[]
+// }
+
+export interface StatSelected {
+    province: string
 }
 
 export enum StatActionTypes {

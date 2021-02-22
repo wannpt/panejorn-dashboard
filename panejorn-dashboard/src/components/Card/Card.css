@@ -4,6 +4,7 @@
     border-width: 1px;
     border-color: #c4c4c4;
     color: black;
+    box-shadow: 0 4px 25px 0 #c4c4c4;
 
     height: fit-content;
     width: 700px;
