@@ -1,8 +1,11 @@
 import { Feature, Geometry } from 'geojson'
-import { geoJSON, Layer, layerGroup, LeafletMouseEvent, Map } from 'leaflet'
-import React, { ReactComponentElement, useEffect, useRef, useState } from 'react'
-import { MapContainer, TileLayer, Marker, Popup, Polygon, GeoJSON, useMap} from 'react-leaflet'
+import { LeafletMouseEvent, Map } from 'leaflet'
+import React, { useEffect, useState } from 'react'
+import { MapContainer, TileLayer, GeoJSON, useMap} from 'react-leaflet'
+import { useDispatch } from 'react-redux'
+import { selectProvince } from '../../store/stats/statActions'
 import './map.css'
+
 
 const MapTypeConst: GeoJSON.FeatureCollection = {
     type: 'FeatureCollection',
@@ -26,9 +29,11 @@ dashArray: '',
 fillOpacity: 0.5
 }
 
+
+
 const GeoMapContainer = (props: any) => {
     let LeafletMap = useMap();
-
+    const dispatch = useDispatch()  
     const onHighlight = (e: LeafletMouseEvent) => {
    
         const layer = e.target
@@ -64,7 +69,7 @@ const GeoMapContainer = (props: any) => {
         layer.bringToFront();
 
         LeafletMap.fitBounds(e.target.getBounds());
-    
+        dispatch(selectProvince(e.target.feature.properties.name))
     }
     
     const onEachFeature = (feature: Feature<Geometry, any>, layer: L.Layer) => {
@@ -86,6 +91,8 @@ const MapComp = () => {
 
     const [mapData, setMapdata] = useState<GeoJSON.FeatureCollection>(MapTypeConst)
     const [loading, setLoading] = useState('0')
+
+    
 
     const getThailandMap = () => {
         fetch('thailandMap.json',{

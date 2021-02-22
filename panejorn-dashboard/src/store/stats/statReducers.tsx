@@ -1,13 +1,17 @@
-import { StatActionInterface, StatActionTypes, StatState } from "./statTypes";
+import { StatActionInterface, StatActionTypes, StatSelected } from "./statTypes";
 
 //State manager for Stats
-const initialState : StatState = {
-    Stats:  []
+const initialState : StatSelected = {
+    province: 'กรุงเทพมหานคร'
 }
 
-export function StatReducers(state = initialState, action: StatActionInterface): StatState {
+export function StatReducers(state = initialState, action: StatActionInterface): any {
     switch(action.type){
         case StatActionTypes.SELECT_PROVINCE:
-            console.log('case 1')
+            console.log('its work')
+            return { province: action.payload }
+
+        default:
+            return state
     }
 }
