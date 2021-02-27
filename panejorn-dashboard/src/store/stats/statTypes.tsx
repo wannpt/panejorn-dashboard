@@ -14,6 +14,15 @@
 
 export interface StatSelected {
     province: string
+    sum_nop: string,
+    sum_budget: string,
+    provinceDetails: provDetail[]
+}
+
+type provDetail = {
+    place:string,
+    number_of_people: string,
+    budget: string,
 }
 
 export enum StatActionTypes {

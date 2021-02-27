@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import BigCard from '../../components/Card/BigCard'
 import SmallCard from '../../components/Card/SmallCard'
 import MapComp from '../../components/Map/Map' 
 import { connect } from 'react-redux'
-import Menu from '../../components/Menu/Menu'
+
 
 
 // interface StatWithDate {
@@ -15,11 +15,21 @@ import Menu from '../../components/Menu/Menu'
 // }
 
 type propType = {
-    province: string
+    province: string,
+    sum_nop: string,
+    sum_budget: string,
+    provinceDetails: {
+        place: string,
+        number_of_people: string,
+        budget: string
+    }[]
 }
 
-const Overall = ({province}: propType) => {
-
+const Overall = (params: any) => {
+    let res:propType = params.res
+    console.log(params)
+    console.log(res.province)
+    console.log(res.provinceDetails)
     return (
         <div>
             <div className='row mb-4'>
@@ -32,13 +42,12 @@ const Overall = ({province}: propType) => {
                     <MapComp/>
                 </div>
                 <div className='col-6 pr-4'>
-                    <BigCard province={province} />
-                    <SmallCard province='กาญจนบุรี' number_of_people='34,568' budget='976,000'/>
-                    <SmallCard province='กรุงเทพมหานคร' number_of_people='29,568' budget='759,000'/>
-                    <SmallCard province='เชียงใหม่' number_of_people='17,568' budget='569,000'/>
-                    <SmallCard province='ชลบุรี' number_of_people='10,568' budget='302,000'/>
-                    <SmallCard province='ตาก' number_of_people='7,568' budget='140,000'/>
-                    <SmallCard province='อยุธยา' number_of_people='1,568' budget='98,000'/>
+                    <BigCard province={res.province} number_of_people={res.sum_nop} budget={res.sum_budget} />
+                    {
+                        res.provinceDetails.map(el => {
+                            return <SmallCard province={el.place} number_of_people={el.number_of_people} budget={el.budget}/>
+                        })
+                    }
                 </div>
             </div>
         </div>
@@ -46,10 +55,9 @@ const Overall = ({province}: propType) => {
 }
 
 const mapStateToProps = (state: any) => {
-    console.log('stateToProps')
-    console.log(state)
+    console.log(state.StatReducers)
     return {
-        province: state.StatReducers.province || 'error'
+        res: state.StatReducers || 'error'
     }
 }
 

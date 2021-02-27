@@ -20,12 +20,12 @@ export const BigCard = (props: any) => {
             <div className='row mb-4'>
                 <div className='col-6 border-right'>
                     <span>จำนวนนักท่องเที่ยว</span><br/>
-                    <span className='page-title gradient-text'>300,000</span>
+                    <span className='page-title gradient-text'>{props.number_of_people}</span>
                     <span className='gradient-text pl-2'>คน</span>
                 </div>
                 <div className='col-6'>
                     <span>จำนวนรายได้*</span><br/>
-                    <span className='page-title gradient-text'>10,000,000</span>
+                    <span className='page-title gradient-text'>{props.budget}</span>
                     <span className='gradient-text pl-2'>บาท</span>
                 </div>
             </div>
