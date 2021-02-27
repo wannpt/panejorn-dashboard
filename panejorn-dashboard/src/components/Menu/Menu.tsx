@@ -28,11 +28,14 @@ const Menu = () => {
                     MenuConstant.map(el =>{
                         return (
                             <Link to={el.path} onClick={toggleDrawer}>
-                                <p>{el.name}</p>
+                                <p className='px-4 py-0 m-0'>{el.name}</p>
                             </Link>
                         )
                     })
                 }
+                <Link to='/'>
+                    <p className='px-4 py-0 m-0'> Log out </p>
+                </Link>
             </Drawer>
         </>
     )
