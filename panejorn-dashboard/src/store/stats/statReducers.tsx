@@ -1,8 +1,4 @@
-import {
-	StatActionInterface,
-	StatActionTypes,
-	StatSelected,
-} from './statTypes';
+import { StatActionInterface, StatActionTypes, StatSelected } from './statTypes';
 
 //State manager for Stats
 const initialState: StatSelected = {
@@ -19,10 +15,7 @@ const initialState: StatSelected = {
 	],
 };
 
-export function StatReducers(
-	state = initialState,
-	action: StatActionInterface
-): any {
+export function StatReducers(state = initialState, action: StatActionInterface): any {
 	let result;
 	console.log(state);
 	switch (action.type) {

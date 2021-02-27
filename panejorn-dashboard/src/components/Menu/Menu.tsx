@@ -21,15 +21,9 @@ const Menu = () => {
 	return (
 		<>
 			<button className='menu-button gradient-text' onClick={toggleDrawer}>
-				{' '}
-				<MenuRounded />{' '}
+				<MenuRounded />
 			</button>
-			<Drawer
-				open={isOpen}
-				onClose={toggleDrawer}
-				direction='left'
-				style={{ zIndex: 9999 }}
-			>
+			<Drawer open={isOpen} onClose={toggleDrawer} direction='left' style={{ zIndex: 9999 }}>
 				{MenuConstant.map((el) => {
 					return (
 						<Link to={el.path} onClick={toggleDrawer}>
