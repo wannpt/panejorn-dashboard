@@ -9883,6 +9883,11 @@ react-loadable@^5.5.0:
   dependencies:
     prop-types "^15.5.0"
 
+react-modern-drawer@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/react-modern-drawer/-/react-modern-drawer-0.1.0.tgz#d9e13423720608ec2f1cb6228d1e93efc4a3f3a7"
+  integrity sha512-G+ReW7E4fjkWy9POIng9jCjNBp6pBF0E0BKIyH/0OLdWHNAvqZ4+qiNB/EktbjypKnwdCvk8cetcAxAN+/MRQQ==
+
 react-redux@^7.2.2:
   version "7.2.2"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.2.2.tgz#03862e803a30b6b9ef8582dadcc810947f74b736"
