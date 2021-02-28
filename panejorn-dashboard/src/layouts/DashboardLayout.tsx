@@ -6,8 +6,9 @@ import DashboardRoutes from '../routers/DashboardRouting';
 import Sider from 'antd/lib/layout/Sider';
 import Menu from '../components/Menu/Menu';
 
-const defaultPaddingLeft = {
+const defaultPadding = {
 	paddingLeft: 152,
+	paddingRight: 152,
 };
 
 const DashboardLayout = () => {
@@ -17,7 +18,7 @@ const DashboardLayout = () => {
 				<Menu />
 				<Topbar />
 			</Header>
-			<Content className='py-4' style={defaultPaddingLeft}>
+			<Content className='py-4' style={defaultPadding}>
 				<DashboardRoutes />
 			</Content>
 		</Layout>

@@ -55,23 +55,24 @@ const Trends = () => {
 			</div>
 			<div className='row text-center'>
 				trends graph {selectedOption}
-				<Line
-					data={LineData}
-					// width={10}
-					height={624}
-					options={{
-						maintainAspectRatio: false,
-						title: {
-							display: true,
-							text: 'เทรนด์ของ ' + selectedOption,
-							fontsize: 20,
-						},
-						legend: {
-							display: true,
-							position: 'right',
-						},
-					}}
-				/>
+				<div className='col-12'>
+					<Line
+						data={LineData}
+						height={624}
+                        options={{
+							maintainAspectRatio: false,
+							title: {
+								display: true,
+								text: 'เทรนด์ของ ' + selectedOption,
+								fontsize: 20,
+							},
+							legend: {
+								display: true,
+								position: 'top',
+							},
+						}}
+					/>
+				</div>
 			</div>
 		</div>
 	);
