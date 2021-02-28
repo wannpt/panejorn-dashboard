@@ -1,13 +1,12 @@
 import { CSSProperties, useState } from 'react';
 import Select from 'react-select';
 import { Radar } from 'react-chartjs-2';
-import { groupedOptions } from '../../constant/places'
+import { groupedOptions } from '../../constant/places';
 
 type optionsType = {
 	value: string;
 	label: string;
 };
-
 
 const dateOptions: optionsType[] = [{ value: '3 เดือน', label: '3 เดือน' }];
 
@@ -79,7 +78,7 @@ const ModelAnalysis = () => {
 				<div className='col-2 text-right'>สถานที่ :</div>
 				<div className='col-4'>
 					<Select
-						defaultValue={ groupedOptions[0].options[0]}
+						defaultValue={groupedOptions[0].options[0]}
 						onChange={selectHandler}
 						options={groupedOptions}
 						formatGroupLabel={formatGroupLabel}
@@ -108,12 +107,12 @@ const ModelAnalysis = () => {
 								display: true,
 								position: 'top',
 							},
-                            scale: {
-                                ticks: {
-                                    suggestedMin: 0,
-                                    suggestedMax: 100
-                                }
-                            }
+							scale: {
+								ticks: {
+									suggestedMin: 0,
+									suggestedMax: 100,
+								},
+							},
 						}}
 					/>
 				</div>
