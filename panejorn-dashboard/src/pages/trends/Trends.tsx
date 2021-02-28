@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Select from 'react-select'
+import { Line } from 'react-chartjs-2'
 
 type optionsType = {
     value: string,
@@ -10,6 +11,17 @@ const options:optionsType[] = [
     {value: 'กรุงเทพมหานคร', label: 'กรุงเทพมหานคร'},
     {value: 'เชียงใหม่', label: 'เชียงใหม่'}
 ]
+
+const LineData = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+    datasets: [{
+        label: 'Rainfall',
+        fill:false,
+        lineTension: 0.5,
+        backgroundColor: 'rgba(75,192,192,1)',
+        data: [65, 59, 80, 81, 56]
+    }]
+}
 
 
 
@@ -48,6 +60,23 @@ const Trends = () => {
             </div>
             <div className='row text-center'>
                 trends graph { selectedOption }
+                <Line 
+                    data={LineData}
+                    width={1000}
+                    height={600}
+                    options={{
+                        maintainAspectRatio:false,
+                        title:{
+                            display:true,
+                            text:'testing',
+                            fontsize: 20
+                        },
+                        legend:{
+                            display:true,
+                            position:'right'
+                        }
+                    }}
+                />
             </div>
 		</div>
 	);
