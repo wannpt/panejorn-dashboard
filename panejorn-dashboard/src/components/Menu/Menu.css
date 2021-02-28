@@ -1,45 +1,69 @@
-.menu-button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.menu-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-    width: 48px;
-    height: 48px;
+	width: 48px;
+	height: 48px;
 
-    position:fixed;
-    top: 84px;
-    left: 24px;
+	position: fixed;
+	top: 84px;
+	left: 24px;
 
-    border: 1px solid;
-    border-radius: 10px;
-    border-width: 1px;
-    border-color: #F3BB80;
-    padding:0px;
-    outline:none;
-    opacity: 1;
-    transition: 0.3s;
+	border: 1px solid;
+	border-radius: 10px;
+	border-width: 1px;
+	border-color: #f3bb80;
+	padding: 0px;
+	outline: none;
+	opacity: 1;
+	transition: 0.3s;
 }
 
-.menu-button:hover{
-    background: rgb(243,187,128);
-    background: -moz-linear-gradient(135deg, rgba(243,187,128,1) 0%, rgba(230,105,115,1) 100%);
-    background: -webkit-linear-gradient(135deg, rgba(243,187,128,1) 0%, rgba(230,105,115,1) 100%);
-    background: linear-gradient(135deg, rgba(243,187,128,1) 0%, rgba(230,105,115,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f3bb80",endColorstr="#e66973",GradientType=1);
-    border-color: rgb(243,187,128);
-    outline:none;
-    color: white;
-    opacity: 1;
+.menu-button:hover {
+	background: rgb(243, 187, 128);
+	background: -moz-linear-gradient(
+		135deg,
+		rgba(243, 187, 128, 1) 0%,
+		rgba(230, 105, 115, 1) 100%
+	);
+	background: -webkit-linear-gradient(
+		135deg,
+		rgba(243, 187, 128, 1) 0%,
+		rgba(230, 105, 115, 1) 100%
+	);
+	background: linear-gradient(
+		135deg,
+		rgba(243, 187, 128, 1) 0%,
+		rgba(230, 105, 115, 1) 100%
+	);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f3bb80",endColorstr="#e66973",GradientType=1);
+	border-color: rgb(243, 187, 128);
+	outline: none;
+	color: white;
+	opacity: 1;
 }
 
-.menu-button:focus{
-    background: rgb(243,187,128);
-    background: -moz-linear-gradient(135deg, rgba(243,187,128,1) 0%, rgba(230,105,115,1) 100%);
-    background: -webkit-linear-gradien  t(135deg, rgba(243,187,128,1) 0%, rgba(230,105,115,1) 100%);
-    background: linear-gradient(135deg, rgba(243,187,128,1) 0%, rgba(230,105,115,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f3bb80",endColorstr="#e66973",GradientType=1);
-    border-color: rgb(243,187,128);
-    outline:none;
-    color: white;
-    opacity: 1;
+.menu-button:focus {
+	background: rgb(243, 187, 128);
+	background: -moz-linear-gradient(
+		135deg,
+		rgba(243, 187, 128, 1) 0%,
+		rgba(230, 105, 115, 1) 100%
+	);
+	background: -webkit-linear-gradien
+		t(135deg, rgba(243, 187, 128, 1) 0%, rgba(230, 105, 115, 1) 100%);
+	background: linear-gradient(
+		135deg,
+		rgba(243, 187, 128, 1) 0%,
+		rgba(230, 105, 115, 1) 100%
+	);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f3bb80",endColorstr="#e66973",GradientType=1);
+	border-color: rgb(243, 187, 128);
+	outline: none;
+	color: white;
+	opacity: 1;
+}
+
+.menu-items {
 }

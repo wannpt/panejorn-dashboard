@@ -1,27 +1,27 @@
-import React from 'react'
+import React from 'react';
 
-import './Card.css'
+import './Card.css';
 
-import {AccessibilityNew, Payment} from '@material-ui/icons'
+import { AccessibilityNew, Payment } from '@material-ui/icons';
 
-const SmallCard = (props:any) => {
-    return (
-        <div className='card small justify-content-center my-2'>
-            <div className='row align-items-center px-3'>
-                <div className='col-5'>
-                    <span className='label-text mx-1'>{props.province}</span>
-                </div>
-                <div className='col-3'>
-                    <AccessibilityNew className='gradient-text'/>
-                    <span className='label-text mx-1'>{props.number_of_people} คน</span>
-                </div>
-                <div className='col-4'>
-                    <Payment className='gradient-text'/>
-                    <span className='label-text mx-1'>{props.budget} บาท</span>
-                </div>
-            </div>
-        </div>  
-    )
-}
+const SmallCard = (props: any) => {
+	return (
+		<div className='card small justify-content-center my-2'>
+			<div className='row align-items-center px-3'>
+				<div className='col-5'>
+					<span className='label-text mx-1'>{props.province}</span>
+				</div>
+				<div className='col-3'>
+					<AccessibilityNew className='gradient-text' />
+					<span className='label-text mx-1'>{props.number_of_people} คน</span>
+				</div>
+				<div className='col-4'>
+					<Payment className='gradient-text' />
+					<span className='label-text mx-1'>{props.budget} บาท</span>
+				</div>
+			</div>
+		</div>
+	);
+};
 
-export default SmallCard
+export default SmallCard;
