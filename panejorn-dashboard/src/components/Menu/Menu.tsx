@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 const MenuConstant = [
 	{ name: 'สถิติการท่องเที่ยว', path: '/dashboard/stat' },
 	{ name: 'เทรนด์', path: '/dashboard/trends' },
+	{ name: 'ประสิทธิภาพโมเดล', path: '/dashboard/model' },
 ];
 
 const Menu = () => {

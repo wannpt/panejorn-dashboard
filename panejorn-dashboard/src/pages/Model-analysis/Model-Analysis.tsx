@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Select from 'react-select';
-import { Line } from 'react-chartjs-2';
+import { Radar } from 'react-chartjs-2';
 
 type optionsType = {
 	value: string;
@@ -15,20 +15,27 @@ const provinceOptions: optionsType[] = [
 const dateOptions: optionsType[] = [{ value: '3 เดือน', label: '3 เดือน' }];
 
 const LineData = {
-	labels: ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.'],
+	labels: ['ธรรมชาติ', 'วัฒนธรรม', 'ประวัติศาสตร์', 'นันทนาการ', 'ศิลปะ'],
 	datasets: [
 		{
-			label: 'จำนวนนักท่องเที่ยว',
+			label: 'โมเดล',
 			fill: false,
-			lineTension: 0.3,
+			lineTension: 0,
 			backgroundColor: 'rgba(230,105,115,1)',
 			borderColor: 'rgb(243,187,128,1)',
-			data: [65, 59, 80, 81, 56, 122],
+			data: [65, 59, 80, 81, 56],
+		},{
+			label: 'ของจริง',
+			fill: false,
+			lineTension: 0,
+			backgroundColor: '#3E5C9A',
+			borderColor: '#7D9BDA',
+			data: [100, 100, 30, 10, 20],
 		},
 	],
 };
 
-const Trends = () => {
+const ModelAnalysis = () => {
 	const [selectedOption, setSelectedOption] = useState(provinceOptions[0].value);
 	// wait data from pleum
     //const [selectedDateOption, setSelectedDateOption] = useState(dateOptions[0].value);
@@ -41,7 +48,7 @@ const Trends = () => {
 		<div>
 			<div className='row mb-4'>
 				<div className='col'>
-					<span className='page-title gradient-text'> เทรนด์ </span>
+					<span className='page-title gradient-text'> ประสิทธิภาพโมเดล </span>
 				</div>
 			</div>
 			<div className='row justify-content-center align-items-center mb-2'>
@@ -58,14 +65,14 @@ const Trends = () => {
 			</div>
 			<div className='row text-center'>
 				<div className='col-12'>
-					<Line
+					<Radar
 						data={LineData}
 						height={624}
 						options={{
 							maintainAspectRatio: false,
 							title: {
 								display: true,
-								text: 'เทรนด์ของ ' + selectedOption,
+								text: 'ประสิทธิภาพโมเดล ' + selectedOption,
 								fontsize: 20,
 							},
 							legend: {
@@ -80,4 +87,4 @@ const Trends = () => {
 	);
 };
 
-export default Trends;
+export default ModelAnalysis;

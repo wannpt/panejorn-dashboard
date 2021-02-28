@@ -12,8 +12,8 @@ const Trends = Loadable({
 	loading: () => null,
 });
 
-const MainDashboard = Loadable({
-	loader: () => import('../layouts/DashboardLayout'),
+const ModelAnalysis = Loadable({
+	loader: () => import('../pages/Model-analysis/Model-Analysis'),
 	loading: () => null,
 });
 
@@ -22,6 +22,8 @@ const DashboardRoutes = () => {
 		<Switch>
 			<Route path='**/stat' component={Stat} />
 			<Route path='**/trends' component={Trends} />
+			<Route path='**/model' component={ModelAnalysis} />
+			
 		</Switch>
 	);
 };
