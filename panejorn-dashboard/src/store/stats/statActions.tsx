@@ -1,4 +1,4 @@
-import { StatActionInterface, StatActionTypes } from "./statTypes";
+import { StatActionInterface, StatActionTypes, StatSelected } from "./statTypes";
 
 export function selectProvince(provinceName : string): StatActionInterface {
     return {

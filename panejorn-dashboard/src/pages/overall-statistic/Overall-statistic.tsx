@@ -3,6 +3,7 @@ import BigCard from '../../components/Card/BigCard'
 import SmallCard from '../../components/Card/SmallCard'
 import MapComp from '../../components/Map/Map' 
 import { connect } from 'react-redux'
+import { getData } from '../../constant/dataLoader'
 
 
 
@@ -16,20 +17,20 @@ import { connect } from 'react-redux'
 
 type propType = {
     province: string,
-    sum_nop: string,
-    sum_budget: string,
+    sum_nop: Number,
+    sum_budget: Number,
     provinceDetails: {
         place: string,
-        number_of_people: string,
-        budget: string
+        number_of_people: Number,
+        budget: Number
     }[]
 }
 
 const Overall = (params: any) => {
     let res:propType = params.res
-    console.log(params)
-    console.log(res.province)
-    console.log(res.provinceDetails)
+    let data = getData('country')
+    console.log(data)
+
     return (
         <div>
             <div className='row mb-4'>
@@ -43,11 +44,13 @@ const Overall = (params: any) => {
                 </div>
                 <div className='col-6 pr-4'>
                     <BigCard province={res.province} number_of_people={res.sum_nop} budget={res.sum_budget} />
-                    {
-                        res.provinceDetails.map(el => {
-                            return <SmallCard province={el.place} number_of_people={el.number_of_people} budget={el.budget}/>
-                        })
-                    }
+                    <div className='p-0 card-container'>
+                        {
+                            res.provinceDetails.map(el => {
+                                return <SmallCard province={el.place} number_of_people={el.number_of_people} budget={el.budget}/>
+                            })
+                        }
+                    </div>
                 </div>
             </div>
         </div>

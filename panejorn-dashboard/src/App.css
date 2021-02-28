@@ -97,3 +97,11 @@
     -webkit-text-fill-color: transparent;
 }
 
+.card-container{
+  height: 440px;
+  overflow-y: auto;
+}
+
+.card-container::-webkit-scrollbar{
+  display: none;
+}

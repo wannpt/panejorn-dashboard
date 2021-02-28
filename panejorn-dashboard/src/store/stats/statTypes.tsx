@@ -14,21 +14,22 @@
 
 export interface StatSelected {
     province: string
-    sum_nop: string,
-    sum_budget: string,
+    sum_nop: number,
+    sum_budget: number,
     provinceDetails: provDetail[]
 }
 
 type provDetail = {
     place:string,
-    number_of_people: string,
-    budget: string,
+    number_of_people: number,
+    budget: number,
 }
 
 export enum StatActionTypes {
     SELECT_PROVINCE = 'SELECT_PROVINCE',
     RESET_PROVINCE = 'RESET_PROVINCE',
     FILTER = 'FILTER',
+    UPDATE_DATA = 'UPDATE_DATA'
 }
 
 export type StatAction = StatActionTypes;
