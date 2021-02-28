@@ -1,16 +1,13 @@
-import { useState } from 'react';
+import { CSSProperties, useState } from 'react';
 import Select from 'react-select';
 import { Radar } from 'react-chartjs-2';
+import { groupedOptions } from '../../constant/places'
 
 type optionsType = {
 	value: string;
 	label: string;
 };
 
-const provinceOptions: optionsType[] = [
-	{ value: 'กรุงเทพมหานคร', label: 'กรุงเทพมหานคร' },
-	{ value: 'เชียงใหม่', label: 'เชียงใหม่' },
-];
 
 const dateOptions: optionsType[] = [{ value: '3 เดือน', label: '3 เดือน' }];
 
@@ -24,21 +21,48 @@ const LineData = {
 			backgroundColor: 'rgba(230,105,115,1)',
 			borderColor: 'rgb(243,187,128,1)',
 			data: [65, 59, 80, 81, 56],
-		},{
+		},
+		{
 			label: 'ของจริง',
 			fill: false,
 			lineTension: 0,
 			backgroundColor: '#3E5C9A',
 			borderColor: '#7D9BDA',
-			data: [100, 100, 30, 10, 20],
+			data: [66, 60, 89, 81, 60],
 		},
 	],
 };
 
+const groupStyles = {
+	display: 'flex',
+	alignItems: 'center',
+	justifyContent: 'space-between',
+};
+
+const groupBadgeStyles = {
+	backgroundColor: '#EBECF0',
+	borderRadius: '2em',
+	color: '#172B4D',
+	display: 'inline-block',
+	fontSize: 12,
+	fontWeight: 'normal',
+	lineHeight: '1',
+	minWidth: 1,
+	padding: '0.16666666666667em 0.5em',
+	textAlign: 'center',
+} as CSSProperties;
+
+const formatGroupLabel = (data: any) => (
+	<div style={groupStyles}>
+		<span>{data.label}</span>
+		<span style={groupBadgeStyles}>{data.options.length}</span>
+	</div>
+);
+
 const ModelAnalysis = () => {
-	const [selectedOption, setSelectedOption] = useState(provinceOptions[0].value);
+	const [selectedOption, setSelectedOption] = useState(groupedOptions[0].options[0].value);
 	// wait data from pleum
-    //const [selectedDateOption, setSelectedDateOption] = useState(dateOptions[0].value);
+	//const [selectedDateOption, setSelectedDateOption] = useState(dateOptions[0].value);
 
 	const selectHandler = (selectChoice: any) => {
 		setSelectedOption(selectChoice.value);
@@ -52,9 +76,14 @@ const ModelAnalysis = () => {
 				</div>
 			</div>
 			<div className='row justify-content-center align-items-center mb-2'>
-				<div className='col-2 text-right'>จังหวัด :</div>
+				<div className='col-2 text-right'>สถานที่ :</div>
 				<div className='col-4'>
-					<Select defaultValue={[provinceOptions][0]} onChange={selectHandler} options={provinceOptions} />
+					<Select
+						defaultValue={ groupedOptions[0].options[0]}
+						onChange={selectHandler}
+						options={groupedOptions}
+						formatGroupLabel={formatGroupLabel}
+					/>
 				</div>
 			</div>
 			<div className='row justify-content-center align-items-center mb-2'>
@@ -79,6 +108,12 @@ const ModelAnalysis = () => {
 								display: true,
 								position: 'top',
 							},
+                            scale: {
+                                ticks: {
+                                    suggestedMin: 0,
+                                    suggestedMax: 100
+                                }
+                            }
 						}}
 					/>
 				</div>
