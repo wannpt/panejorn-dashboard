@@ -1,4 +1,4 @@
-import { CSSProperties, useState } from 'react';
+import { CSSProperties, useEffect, useState } from 'react';
 import Select from 'react-select';
 import { Radar } from 'react-chartjs-2';
 import { getData } from '../../constant/dataLoader';
@@ -8,9 +8,16 @@ type optionsType = {
 	label: string;
 };
 
+type modelAnalysisType = {
+	datasets: { label: string, data: number[]}[]
+	labels: string[],
+	location: string,
+	province: string
+}
+
 const dateOptions: optionsType[] = [{ value: '3 เดือน', label: '3 เดือน' }];
 
-const LineData = {
+var lineData = {
 	labels: ['ธรรมชาติ', 'วัฒนธรรม', 'ประวัติศาสตร์', 'นันทนาการ', 'ศิลปะ'],
 	datasets: [
 		{
@@ -19,7 +26,7 @@ const LineData = {
 			lineTension: 0,
 			backgroundColor: 'rgba(230,105,115,1)',
 			borderColor: 'rgb(243,187,128,1)',
-			data: [65, 59, 80, 81, 56],
+			data: [0, 0.2, 0.4, 0.2, 0.2],
 		},
 		{
 			label: 'ของจริง',
@@ -27,7 +34,7 @@ const LineData = {
 			lineTension: 0,
 			backgroundColor: '#3E5C9A',
 			borderColor: '#7D9BDA',
-			data: [66, 60, 89, 81, 60],
+			data: [0.2, 0.2, 0.2, 0.2, 0.2],
 		},
 	],
 };
@@ -58,14 +65,30 @@ const formatGroupLabel = (data: any) => (
 	</div>
 );
 
-const ModelAnalysis = () => {
-	let data = getData('selectOption');
 
-	const [selectedOption, setSelectedOption] = useState(data[0].options[0].value);
+const ModelAnalysis = () => {
+	let options = getData('selectOption');
+	let data: modelAnalysisType[] = getData('modelAnalysis');
+	
+	let result: modelAnalysisType;
+
+	console.log(data)
+	const [selectedOption, setSelectedOption] = useState(options[0].options[0].value);
 
 	const selectHandler = (selectChoice: any) => {
 		setSelectedOption(selectChoice.value);
+		data.map(el => {
+			if(selectChoice.value === el.location)
+				return result = el;
+		})
+		console.log(result)
+		//model
+		lineData.datasets[0].data = result.datasets[0].data;
+		//real
+		lineData.datasets[1].data = result.datasets[1].data;
+
 	};
+
 
 	return (
 		<div>
@@ -78,9 +101,9 @@ const ModelAnalysis = () => {
 				<div className='col-2 text-right'>สถานที่ :</div>
 				<div className='col-4'>
 					<Select
-						defaultValue={data[0].options[0]}
+						defaultValue={options[0].options[0]}
 						onChange={selectHandler}
-						options={data}
+						options={options}
 						formatGroupLabel={formatGroupLabel}
 					/>
 				</div>
@@ -94,7 +117,7 @@ const ModelAnalysis = () => {
 			<div className='row text-center'>
 				<div className='col-12'>
 					<Radar
-						data={LineData}
+						data={ lineData }
 						height={624}
 						options={{
 							maintainAspectRatio: false,
@@ -110,7 +133,7 @@ const ModelAnalysis = () => {
 							scale: {
 								ticks: {
 									suggestedMin: 0,
-									suggestedMax: 100,
+									suggestedMax: 0.5,
 								},
 							},
 						}}
