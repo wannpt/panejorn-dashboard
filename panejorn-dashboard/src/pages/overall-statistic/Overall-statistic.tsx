@@ -17,13 +17,17 @@ import { getData } from '../../constant/dataLoader'
 
 type propType = {
     province: string,
-    sum_nop: Number,
-    sum_budget: Number,
+    sum_nop: number,
+    sum_budget: number,
     provinceDetails: {
         place: string,
-        number_of_people: Number,
-        budget: Number
+        number_of_people: number,
+        budget: number
     }[]
+}
+
+const numberWithCommas = (x: number) => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 }
 
 const Overall = (params: any) => {
@@ -43,11 +47,11 @@ const Overall = (params: any) => {
                     <MapComp/>
                 </div>
                 <div className='col-6 pr-4'>
-                    <BigCard province={res.province} number_of_people={res.sum_nop} budget={res.sum_budget} />
+                    <BigCard province={res.province} number_of_people={numberWithCommas(res.sum_nop)} budget={numberWithCommas(res.sum_budget)} />
                     <div className='p-0 card-container'>
                         {
                             res.provinceDetails.map(el => {
-                                return <SmallCard province={el.place} number_of_people={el.number_of_people} budget={el.budget}/>
+                                return <SmallCard province={el.place} number_of_people={numberWithCommas(el.number_of_people)} budget={numberWithCommas(el.budget)}/>
                             })
                         }
                     </div>
