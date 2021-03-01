@@ -1,4 +1,4 @@
-import ActionButton from 'antd/lib/modal/ActionButton';
+
 import { getData } from '../../constant/dataLoader';
 import { StatActionInterface, StatActionTypes, StatSelected } from './statTypes';
 

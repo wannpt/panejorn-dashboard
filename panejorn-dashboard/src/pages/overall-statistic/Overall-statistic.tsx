@@ -5,16 +5,6 @@ import MapComp from '../../components/Map/Map'
 import { connect } from 'react-redux'
 import { getData } from '../../constant/dataLoader'
 
-
-
-// interface StatWithDate {
-//     date: StatTypes[]
-// }
-
-// interface StatState {
-//     Stats: StatWithDate[]
-// }
-
 type propType = {
     province: string,
     sum_nop: number,

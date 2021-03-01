@@ -1,19 +1,29 @@
 import React from 'react'
 import './Card.css'
+import { useDispatch } from 'react-redux';
+import { selectProvince } from '../../store/stats/statActions';
+import { ReplayOutlined } from '@material-ui/icons';
 
-type CardType = {
-    province: string
-    budget: number
-    population: number
-}
+
 
 export const BigCard = (props: any) => {
+
+    const dispatch = useDispatch();
+
+    const ResetHandler = () => {
+        console.log('click')
+        
+        //dispatch(selectProvince('ประเทศไทย'));
+        window.location.reload();
+        return true;
+    }
+
     return (
         <div className="card px-4 text-center">
-            <div className='row my-2'>
+            <div className='row my-2 align-items-center'>
                 <div className='col-12'>
                     <span className='topic-title gradient-text'>
-                        {props.province}
+                        {props.province} <ReplayOutlined fontSize={'large'} onClick={ResetHandler} />
                     </span>
                 </div>
             </div>
