@@ -1,7 +1,7 @@
 import { CSSProperties, useState } from 'react';
 import Select from 'react-select';
 import { Radar } from 'react-chartjs-2';
-import { groupedOptions } from '../../constant/places';
+import { getData } from '../../constant/dataLoader';
 
 type optionsType = {
 	value: string;
@@ -59,9 +59,9 @@ const formatGroupLabel = (data: any) => (
 );
 
 const ModelAnalysis = () => {
-	const [selectedOption, setSelectedOption] = useState(groupedOptions[0].options[0].value);
-	// wait data from pleum
-	//const [selectedDateOption, setSelectedDateOption] = useState(dateOptions[0].value);
+	let data = getData('selectOption');
+
+	const [selectedOption, setSelectedOption] = useState(data[0].options[0].value);
 
 	const selectHandler = (selectChoice: any) => {
 		setSelectedOption(selectChoice.value);
@@ -78,9 +78,9 @@ const ModelAnalysis = () => {
 				<div className='col-2 text-right'>สถานที่ :</div>
 				<div className='col-4'>
 					<Select
-						defaultValue={groupedOptions[0].options[0]}
+						defaultValue={data[0].options[0]}
 						onChange={selectHandler}
-						options={groupedOptions}
+						options={data}
 						formatGroupLabel={formatGroupLabel}
 					/>
 				</div>

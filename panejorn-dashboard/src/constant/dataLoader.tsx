@@ -2,6 +2,16 @@ import countryJson from './mock-data-by-country.json'
 import provinceJson from './mock-data-by-province.json'
 import selectOptionsJson from './mock-data-model-analysis-searching-system.json'
 
+interface SelectOptionGroupType {
+    label: string
+    options: SelectOptionType[]
+}
+
+type SelectOptionType = {
+    value: string,
+    label: string
+}
+
 export const getData = (type: string) => {
 
     if(type === 'country')
