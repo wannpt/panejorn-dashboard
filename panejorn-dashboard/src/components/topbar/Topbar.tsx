@@ -1,9 +1,5 @@
 import './topbar.css';
 
-const topbarStyle = {
-	height: 60,
-};
-
 const Topbar = () => {
 	return (
 		<div className='row text-center'>
