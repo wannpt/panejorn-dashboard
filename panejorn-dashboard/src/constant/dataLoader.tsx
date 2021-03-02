@@ -13,7 +13,5 @@ export const getData = (type: string) => {
 
 	if (type === 'modelAnalysis') return JSON.parse(JSON.stringify(modelAnalysisJson));
 
-	if (type === 'timeseries')
-		return JSON.parse(JSON.stringify(timeSeriesJson));
+	if (type === 'timeseries') return JSON.parse(JSON.stringify(timeSeriesJson));
 };
-

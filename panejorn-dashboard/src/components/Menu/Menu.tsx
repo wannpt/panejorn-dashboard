@@ -27,7 +27,7 @@ const Menu = () => {
 			<Drawer open={isOpen} onClose={toggleDrawer} direction='left' style={{ zIndex: 9999 }}>
 				{MenuConstant.map((el) => {
 					return (
-						<Link to={el.path} onClick={toggleDrawer}>
+						<Link to={el.path} onClick={toggleDrawer} key={el.path}>
 							<p className='px-4 py-0 m-0'>{el.name}</p>
 						</Link>
 					);

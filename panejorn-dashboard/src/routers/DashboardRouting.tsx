@@ -1,4 +1,3 @@
-import React from 'react';
 import Loadable from 'react-loadable';
 import { Route, Switch } from 'react-router-dom';
 
@@ -20,10 +19,9 @@ const ModelAnalysis = Loadable({
 const DashboardRoutes = () => {
 	return (
 		<Switch>
-			<Route path='**/stat' component={Stat} />
-			<Route path='**/trends' component={Trends} />
-			<Route path='**/model' component={ModelAnalysis} />
-			
+			<Route path='**/stat' component={Stat} key='stat' />
+			<Route path='**/trends' component={Trends} key='trends' />
+			<Route path='**/model' component={ModelAnalysis} key='model' />
 		</Switch>
 	);
 };

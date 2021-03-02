@@ -12,8 +12,8 @@ type dataType = {
 	province: string;
 	label: string[];
 	datasets: {
-		label:string,
-		data: number[]
+		label: string;
+		data: number[];
 	}[];
 };
 
@@ -28,7 +28,6 @@ const provinceOptions: optionsType[] = [
 const dateOptions: optionsType[] = [{ value: '3 เดือน', label: '3 เดือน' }];
 
 const LineChartContainer = (props: any) => {
-	console.log(props.selectedData)
 	let lineData = {
 		labels: props.selectedData.label[0],
 		datasets: [
@@ -47,7 +46,7 @@ const LineChartContainer = (props: any) => {
 				backgroundColor: '#3E5C9A',
 				borderColor: '#7D9BDA',
 				data: props.selectedData.datasets[1].data,
-			}
+			},
 		],
 	};
 
@@ -67,20 +66,20 @@ const LineChartContainer = (props: any) => {
 						display: true,
 						position: 'top',
 					},
-					scales:{
-						xAxes: [{
-							ticks: {
-								userCallback: function(label: any, index: any){
-									// console.log(index)
-									if(index%6 === 0){
-										// console.log('show ' + label)
-										return lineData.labels[index];
-									}
-									return '';
-								}
-							}
-						}]
-					}	
+					scales: {
+						xAxes: [
+							{
+								ticks: {
+									userCallback: function (index: any) {
+										if (index % 6 === 0) {
+											return lineData.labels[index];
+										}
+										return '';
+									},
+								},
+							},
+						],
+					},
 				}}
 			/>
 		</>
@@ -92,16 +91,14 @@ const Trends = () => {
 	let isLoading = true;
 	let rawData: dataType[] = getData('timeseries');
 	const [selectData, setSelectData] = useState(rawData[0]);
-	console.log(rawData)
 	const selectHandler = (selectChoice: any) => {
 		setSelectedOption(selectChoice.value);
 		rawData.map((el) => {
 			if (el.province === selectChoice.value) {
-				console.log(el.datasets)
 				setSelectData({ ...selectData, datasets: el.datasets });
-				return true
+				return true;
 			}
-			return true
+			return true;
 		});
 	};
 

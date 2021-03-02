@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux'
-import { StatReducers } from './stats/statReducers'
+import { combineReducers } from 'redux';
+import { StatReducers } from './stats/statReducers';
 
 const rootReducers = combineReducers({
-    StatReducers,
+	StatReducers,
 });
 
-export default rootReducers
+export default rootReducers;

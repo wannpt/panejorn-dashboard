@@ -22,29 +22,28 @@ const MapTypeConst: GeoJSON.FeatureCollection = {
 
 //need works
 const getStyle = (feature: any) => {
-    if (
-        feature.properties.name === 'เชียงราย' ||
-        feature.properties.name === 'กรุงเทพมหานคร' ||
-        feature.properties.name === 'ชลบุรี' ||
-        feature.properties.name === 'ตาก' ||
-        feature.properties.name === 'นครราชสีมา' ||
-        feature.properties.name === 'ภูเก็ต'
-    ) {
-        return {
-            weight: 2,
-            color: '#FD8D3C',
-            dashArray: '',
-            fillOpacity: 0.7,
-        };
-    }
-
-    else return {
-        weight: 0.5,
-        color: '#989898',
-        dashArray: '',
-        fillOpacity: 0.7,
-    };
-}
+	if (
+		feature.properties.name === 'เชียงราย' ||
+		feature.properties.name === 'กรุงเทพมหานคร' ||
+		feature.properties.name === 'ชลบุรี' ||
+		feature.properties.name === 'ตาก' ||
+		feature.properties.name === 'นครราชสีมา' ||
+		feature.properties.name === 'ภูเก็ต'
+	) {
+		return {
+			weight: 2,
+			color: '#FD8D3C',
+			dashArray: '',
+			fillOpacity: 0.7,
+		};
+	} else
+		return {
+			weight: 0.5,
+			color: '#989898',
+			dashArray: '',
+			fillOpacity: 0.7,
+		};
+};
 
 const GeoMapContainer = (props: any) => {
 	let LeafletMap = useMap();
@@ -66,9 +65,8 @@ const GeoMapContainer = (props: any) => {
 				dashArray: '',
 				fillOpacity: 0.7,
 			});
-            layer.bringToFront();
+			layer.bringToFront();
 		}
-		
 	};
 
 	const resetHighlight = (e: LeafletMouseEvent) => {
@@ -87,12 +85,9 @@ const GeoMapContainer = (props: any) => {
 				dashArray: '',
 				fillOpacity: 0.7,
 			});
-            layer.bringToFront();
+			layer.bringToFront();
 		}
-		
 	};
-
-   
 
 	const ZoomInFeature = (e: LeafletMouseEvent, LeafletMap: Map) => {
 		const layer = e.target;
@@ -109,9 +104,6 @@ const GeoMapContainer = (props: any) => {
 	};
 
 	const onEachFeature = (feature: Feature<Geometry, any>, layer: L.Layer) => {
-		console.log(layer);
-		console.log(feature);
-
 		if (
 			feature.properties.name !== 'เชียงราย' &&
 			feature.properties.name !== 'กรุงเทพมหานคร' &&
@@ -120,7 +112,6 @@ const GeoMapContainer = (props: any) => {
 			feature.properties.name !== 'นครราชสีมา' &&
 			feature.properties.name !== 'ภูเก็ต'
 		) {
-			console.log('should remove');
 			layer.remove();
 		}
 

@@ -3,7 +3,6 @@ import Topbar from '../components/topbar/Topbar';
 import { Layout } from 'antd';
 import { Content, Header } from 'antd/lib/layout/layout';
 import DashboardRoutes from '../routers/DashboardRouting';
-import Sider from 'antd/lib/layout/Sider';
 import Menu from '../components/Menu/Menu';
 
 const defaultPadding = {

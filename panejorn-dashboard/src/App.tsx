@@ -4,11 +4,11 @@ import './App.css';
 import RootRoutes from './routers/RootRouting';
 
 function App() {
-  return (
-    <div className="App">
-      <RootRoutes/>
-    </div>
-  );
+	return (
+		<div className='App'>
+			<RootRoutes />
+		</div>
+	);
 }
 
 export default App;

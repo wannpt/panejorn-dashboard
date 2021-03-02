@@ -1,7 +1,5 @@
 import React from 'react';
-
 import './Card.css';
-
 import { AccessibilityNew, Payment } from '@material-ui/icons';
 
 const SmallCard = (props: any) => {

@@ -1,8 +1,8 @@
-import { StatActionInterface, StatActionTypes, StatSelected } from "./statTypes";
+import { StatActionInterface, StatActionTypes } from './statTypes';
 
-export function selectProvince(provinceName : string): StatActionInterface {
-    return {
-        type: StatActionTypes.SELECT_PROVINCE,
-        payload: provinceName
-    }
+export function selectProvince(provinceName: string): StatActionInterface {
+	return {
+		type: StatActionTypes.SELECT_PROVINCE,
+		payload: provinceName,
+	};
 }

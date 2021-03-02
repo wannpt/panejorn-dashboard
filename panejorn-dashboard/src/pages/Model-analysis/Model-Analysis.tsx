@@ -1,4 +1,4 @@
-import { CSSProperties, useEffect, useState } from 'react';
+import { CSSProperties, useState } from 'react';
 import Select from 'react-select';
 import { Radar } from 'react-chartjs-2';
 import { getData } from '../../constant/dataLoader';
@@ -9,11 +9,11 @@ type optionsType = {
 };
 
 type modelAnalysisType = {
-	datasets: { label: string, data: number[]}[]
-	labels: string[],
-	location: string,
-	province: string
-}
+	datasets: { label: string; data: number[] }[];
+	labels: string[];
+	location: string;
+	province: string;
+};
 
 const dateOptions: optionsType[] = [{ value: '3 เดือน', label: '3 เดือน' }];
 
@@ -65,30 +65,27 @@ const formatGroupLabel = (data: any) => (
 	</div>
 );
 
-
 const ModelAnalysis = () => {
 	let options = getData('selectOption');
 	let data: modelAnalysisType[] = getData('modelAnalysis');
-	
+
 	let result: modelAnalysisType;
 
-	console.log(data)
 	const [selectedOption, setSelectedOption] = useState(options[0].options[0].value);
 
 	const selectHandler = (selectChoice: any) => {
 		setSelectedOption(selectChoice.value);
-		data.map(el => {
-			if(selectChoice.value === el.location)
-				return result = el;
-		})
-		console.log(result)
+		data.map((el) => {
+			if (selectChoice.value === el.location)
+				return (result = el);
+			return true;
+		});
+
 		//model
 		lineData.datasets[0].data = result.datasets[0].data;
 		//real
 		lineData.datasets[1].data = result.datasets[1].data;
-
 	};
-
 
 	return (
 		<div>
@@ -117,7 +114,7 @@ const ModelAnalysis = () => {
 			<div className='row text-center'>
 				<div className='col-12'>
 					<Radar
-						data={ lineData }
+						data={lineData}
 						height={624}
 						options={{
 							maintainAspectRatio: false,

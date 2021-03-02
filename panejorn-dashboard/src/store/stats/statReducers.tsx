@@ -1,4 +1,3 @@
-
 import { getData } from '../../constant/dataLoader';
 import { StatActionInterface, StatActionTypes, StatSelected } from './statTypes';
 
@@ -20,22 +19,18 @@ const initialState: StatSelected = {
 export function StatReducers(state = initialState, action: StatActionInterface): any {
 	let data: StatSelected[];
 	let result;
-	console.log(state);
 	switch (action.type) {
 		case StatActionTypes.SELECT_PROVINCE:
-			console.log(action.payload);
-			result = initialState
-			data = getData('province')
-			console.log(data)
-			data.map(province => {
-				if(action.payload === province.province){
-					console.log(province)
-					return result = province
+			result = initialState;
+			data = getData('province');
+			data.map((province) => {
+				if (action.payload === province.province) {
+					return (result = province);
 				}
-					
-			})
+				return (result = initialState);
+			});
 
-			return result
+			return result;
 
 		default:
 			return initialState;
