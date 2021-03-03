@@ -1,4 +1,5 @@
 import { getData } from '../../constant/dataLoader';
+import { selectProvince } from './statActions';
 import { StatActionInterface, StatActionTypes, StatSelected } from './statTypes';
 
 //State manager for Stats
@@ -24,10 +25,11 @@ export function StatReducers(state = initialState, action: StatActionInterface):
 			result = initialState;
 			data = getData('province');
 			data.map((province) => {
+				console.log(action.payload + ' and ' + province.province)
 				if (action.payload === province.province) {
 					return (result = province);
 				}
-				return (result = initialState);
+				return {...state};
 			});
 
 			return result;

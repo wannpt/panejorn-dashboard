@@ -70,7 +70,7 @@ const LineChartContainer = (props: any) => {
 						xAxes: [
 							{
 								ticks: {
-									userCallback: function (index: any) {
+									userCallback: function (label: any, index: any) {
 										if (index % 6 === 0) {
 											return lineData.labels[index];
 										}
