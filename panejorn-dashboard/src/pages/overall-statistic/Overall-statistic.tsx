@@ -30,7 +30,7 @@ const Overall = (params: any) => {
 				</div>
 			</div>
 			<div className='row pt-4'>
-				<div className='col-6'>
+				{/* <div className='col-6'>
 					<MapComp />
 				</div>
 				<div className='col-6 pr-4'>
@@ -50,7 +50,9 @@ const Overall = (params: any) => {
 							);
 						})}
 					</div>
-				</div>
+				</div> */}
+
+<iframe width="1616" height="700" src="https://app.powerbi.com/view?r=eyJrIjoiNWRhYzE2MmEtMjRhNS00NjMwLWJkOTMtMWY3YTUxNTYwN2Y4IiwidCI6IjZmNDQzMmRjLTIwZDItNDQxZC1iMWRiLWFjMzM4MGJhNjMzZCIsImMiOjEwfQ%3D%3D&pageName=ReportSection" allowFullScreen={true} frameBorder='0'></iframe>
 			</div>
 		</div>
 	);
